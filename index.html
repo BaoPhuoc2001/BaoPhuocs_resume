@@ -1,161 +1,418 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      background-color: rgb(253, 254, 255);
-	font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .full {
-      width: 50%;
-      max-width: 1000px;
-      min-height: 100px;
-      background-color: rgb(245, 239, 231);
-      margin: 0px;
-      display: grid;
-      grid-template-columns: 2fr 4fr;
-    }
-    .left {
-      position: initial;
-      background-color: rgb(126, 219, 231);
-      padding: 20px;
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style>
+		:root{
+			--bgcolor:#beb8ac;
+			--blue:#2fb7fe;
+			--black:#3D3F42;
+			--white:#f4f7ff;
+			--gray:#d8dce4;
+			--lightgray:#8e9095;
+		}
+		*{
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+			font-family: monospace;
+		}
+		body{
+			background: var(--bgcolor);
+		}
+		.clearfix{
+			clear: both;
+		}
+		.resume-box{
+			width: 800px;
+			height: 1000px;
+			margin: 100px auto;
+			background: var(--white);
+			box-shadow: 5px 21px 20px 20px #3d3f4238;
+		}
+		.left-section{
+			background: var(--black);
+			width: 250px;
+			height: 1000px;
+			float: left;
+		}
+		.profile{
+			overflow: hidden;
+			position: relative;
+		}
+		.blue-box{
+		    width: 257px;
+		    height: 407px;
+		    background: var(--blue);
+		    margin-left: -100px;
+		    transform: rotateZ(48deg);
+		    margin-top: -178px;
 
-    }
-    .right {
-      position: initial;
-      background-color: rgb(162, 202, 206);
-      padding: 20px;
+		}
+		.profile-img{
+			    position: absolute;
+		    z-index: 9;
+		    width: 120px;
+		    height: 120px;
+		    transform: translate(-50%, -50%);
+		    left: 50%;
+		    top: 50%;
+		    border-radius: 50%;
+		    border: 3px solid var(--gray);
+		}
+		.name{
+		    color: var(--gray);
+		    text-align: center;
+		    margin-top: -34px;
+		    font-size: 30px;
+		    letter-spacing: 2px;
+		    font-weight: 400;
+		    text-transform: uppercase;
+		}
+		.name span{
+			color: var(--blue);
+		}
+		.n-p{
+			width: 180px;
+		    margin: 0 auto;
+		    text-align: center;
+		    padding: 7px;
+		    border-bottom: 1px solid var(--gray);
+		    border-top: 1px solid var(--gray);
+		    color: var(--gray);
+		    margin-top: 11px;
+		    text-transform: uppercase;
+		}
+		.info{
+			margin-top: 50px;
+		}
+		.heading{
+			width: 180px;
+		    margin: 0 auto;
+		    padding: 2px;
+		    border-bottom: 1px solid var(--gray);
+		    border-top: 1px solid var(--gray);
+		    color: var(--gray);
+		    margin-top: 11px;
+		    text-transform: uppercase;
+		    font-size: 18px;
+		}
+		.p1{
+			color: var(--gray);
+			width: 184px;
+			margin: 0 auto;
+			margin-top: 25px;
+			font-size: 15px;
+		    line-height: 14px;
+		}
+		.p1 span{
+			font-size: 12px;
+		}
+		.span1 img{
+			background: white;
+		    width: 30px;
+		    padding: 6px;
+		    border-radius: 16px;
+		    float: left;
+		    margin-right: 10px;
+		}
+		.right-section{
+			padding: 40px 30px;
+		    background: var(--white);
+		    width: 68%;
+		    float: left;
+		    height: 1000px;
+		}
+		.right-heading img{
+			background: #3d3f42;
+		    width: 36px;
+		    padding: 7px;
+		    border-radius: 17px;
+		    float: left;
+		    display: inline-block;
+		    margin-top: -6px;
+		}
+		.p2{
+		    margin: 0 auto;
+		    padding: 2px;
+		    border-bottom: 1px solid var(--lightgray);
+		    border-top: 1px solid var(--lightgray);
+		    color: var(--black);
+		    text-transform: uppercase;
+		    font-size: 18px;
+		    font-weight: bolder;
+		    margin-left: 50px;
+		    line-height: 18px;
+		}
+		.p3{
+			margin-top: 20px;
+			color: var(--lightgray);
+			text-align: justify;
+			word-spacing: -4px;
+		}
+		.left{
+			width: 25%;
+			float: left;
+		}
+		.right{
+			width: 75%;
+			float: left;
+		}
+		.lr-box{
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		.p4{
+			font-size: 14px;
+			font-weight: 600;
+		}
+		.p5{
+			font-size: 12px;
+			color: var(--lightgray);
+		}
+		.s-box{
+			width: 50%;
+		    float: left;
+		    padding: 20px 20px 20px 0px;
+		}
+		#progress {
+		    background: #333;
+		    border-radius: 13px;
+		    height: 8px;
+		    width: 100%;
+		}
 
-    }
-    .image, .Contact, .Skills, .Language, .Hobbies, .title,
-    .Summary, .Experience, .Education, .project {
-      margin-bottom: 30px;
-    }
-    .h2 {
-      background-color: rgb(4, 96, 150);
-    }
+		#progress:after {
+		    content: '';
+		    display: block;
+		    background: var(--blue);
+		    width: 50%;
+		    height: 100%;
+		    border-radius: 9px;
+		}
+		#progress1 {
+		    background: #333;
+		    border-radius: 13px;
+		    height: 8px;
+		    width: 100%;
+		}
 
-  </style>
+		#progress1:after {
+		    content: '';
+		    display: block;
+		    background: var(--blue);
+		    width: 40%;
+		    height: 100%;
+		    border-radius: 9px;
+		}
+		#progress2 {
+		    background: #333;
+		    border-radius: 13px;
+		    height: 8px;
+		    width: 100%;
+		}
+
+		#progress2:after {
+		    content: '';
+		    display: block;
+		    background: var(--blue);
+		    width: 80%;
+		    height: 100%;
+		    border-radius: 9px;
+		}
+
+		#progress3 {
+		    background: #333;
+		    border-radius: 13px;
+		    height: 8px;
+		    width: 100%;
+		}
+
+		#progress3:after {
+		    content: '';
+		    display: block;
+		    background: var(--blue);
+		    width: 90%;
+		    height: 100%;
+		    border-radius: 9px;
+		}
+		.p6{
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.h-img{
+			margin-top: 25px;
+		    width: 45px;
+		    margin-right: 45px;
+		}
+	</style>
 </head>
-
 <body>
-	<div class="full">
-		<div class="left">
-			<div class="image">
-				<img src=
-"https://www.facebook.com/photo/?fbid=1903961926607530&set=a.117890281881379.png"
-					alt="gfg-logo"
-					style="width:100px;height:100px;">
-			</div>
-			<div class="Contact">
-				<h2>Contact</h2>
-				<p><b>Email id:</b>baophuoc.2001bt@gmail.com</p>
-				<p><b>Mobile no :</b>19001009</p>
-			</div>
-			<div class="Skills">
-				<h2>Skills</h2>
-				<ul>
-					<li><b>Programming Languages :
-					Python, Java, C++</b></li>
-					<li><b>Frontend : HTML5, CSS3,
-					JavaScript, React</b></li>
-					<li><b>Backend : Node.js</b></li>
-				</ul>
-			</div>
-			<div class="Language">
-				<h2>Language</h2>
-				<ul>
-					<li>English</li>
-					<li>Vietnamese</li>
-				</ul>
-			</div>
-			<div class="Hobbies">
-				<h2>Hobbies</h2>
-				<ul>
-					<li>Playing football</li>
-					<li>Swimming</li>
-				</ul>
-			</div>
-		</div>
-		<div class="right">
-			<div class="name">
-				<h1>HOÀNG BẢO PHƯỚC</h1>
-			</div>
-			<div class="title">
-				<p>Sinh viên</p>
-			</div>
-			<div class="Summary">
-				<h2>Summary</h2>
-				<p>To secure a challenging position in a
-				reputable organization
-					to expand my learning knowledge and skill
-				</p>
-			</div>
-			<div class="Experience">
-				<h2>Experience</h2>
-				<h3>Abc webdev pvt ltd - Senior Web Developer</h3>
-				<p>January 2022 to Present</p>
-				<ul>
-					<li>Actively engaged in web creative
-					design and development.</li>
-					<li>Designing project & planning</li>
-				</ul>
-				<h3>Xyz webdev pvt ltd - junior web developer</h3>
-				<p>August 2021 to December 2021</p>
-				<ul>
-					<li>Actively engaged in web creative
-					design and development.</li>
-					<li>Designing project & planning</li>
-					<li>Working on designing</li>
-				</ul>
-			</div>
-			<div class="Education">
-				<h2>Education</h2>
-				<table>
-					<tr>
-						<th>University/college </th>
-						<th>Passing year </th>
-						<th>percentage/cgpa</th>
-					</tr>
-					<tr>
-						<td>xyz</td>
-						<td>2020</td>
-						<td>8.9</td>
-					</tr>
-					<tr>
-						<td>pqr</td>
-						<td>2018</td>
-						<td>89%</td>
-					</tr>
-				</table>
-			</div>
-			<div class="project">
-				<ul>
-					<li>
-						<h2>Project1</h2>
-						<p>This project is based on html
-						& used React</p>
-					</li>
-					<li>
-						<h2>Project2</h2>
-						<p>This project is based on html
-						& used React</p>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</body>
 
+<div class="resume-box">
+	
+	<div class="left-section">
+		<div class="profile">
+		<img src="image/profile.png" class="profile-img">
+		<div class="blue-box"></div>
+		</div>
+		<h2 class="name">Manoj <br><span>Adhikari</span></h2>
+		<p class="n-p">Graphic & Web Designer</p>
+
+
+		<div class="info">
+			<p class="heading">Info</p>
+			<p class="p1"><span class="span1"><img src="image/location.png"></span>Address<span> <br>c-2334 Street Name</span></p>
+			<p class="p1"><span class="span1"><img src="image/call.png"></span>Phone<span> <br>+0123-444-5555</span></p>
+			<p class="p1"><span class="span1"><img src="image/mail.png"></span>Email<span> <br>info@dummy.com</span></p>
+			<p class="p1"><span class="span1"><img src="image/domain.png"></span>Website<span> <br>www.dummy.com</span></p>
+		</div>
+
+		<div class="info">
+			<p class="heading">Social</p>
+			<p class="p1"><span class="span1"><img src="image/skype.png"></span>Skype<span> <br>msofttechskype.com</span></p>
+			<p class="p1"><span class="span1"><img src="image/twitter.png"></span>Twitter<span> <br>demotwitter.com</span></p>
+			<p class="p1"><span class="span1"><img src="image/linkedin.png"></span>Linkdin<span> <br>linkdindemo.com</span></p>
+			<p class="p1"><span class="span1"><img src="image/facebook.png"></span>Facebook<span> <br>facebookdummy.com</span></p>
+		</div>
+
+	</div>
+
+	<div class="right-section">
+		<div class="right-heading">
+			<img src="image/user.png">
+			<p class="p2">Profile</p>
+		</div>
+		<p class="p3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+
+		<div class="clearfix"></div>
+		<br><br>
+		<div class="right-heading">
+			<img src="image/pencil.png">
+			<p class="p2">Work Experience</p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="lr-box">
+		<div class="left">
+			<p class="p4">2012 - 2014</p>
+			<p class="p5">New Delhi</p>
+		</div>
+
+		<div class="right">
+			<p class="p4">Web Designer</p>
+			<p class="p5">Retoching Company</p>
+			<p class="p5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+		</div>
+		<div class="clearfix"></div>
+		</div>
+
+		<div class="lr-box">
+		<div class="left">
+			<p class="p4">2014 - 2017</p>
+			<p class="p5">New Delhi</p>
+		</div>
+
+		<div class="right">
+			<p class="p4">Graphic Web Assitant</p>
+			<p class="p5">Setup Box Manufactring</p>
+			<p class="p5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+		</div>
+		<div class="clearfix"></div>
+		</div>
+
+		<div class="lr-box">
+		<div class="left">
+			<p class="p4">2017 - 2021</p>
+			<p class="p5">Noida</p>
+		</div>
+
+		<div class="right">
+			<p class="p4">Web Designer</p>
+			<p class="p5">Retoching Company</p>
+			<p class="p5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+		</div>
+		<div class="clearfix"></div>
+		</div>
+
+
+		<br>
+		<div class="right-heading">
+			<img src="image/edu.png">
+			<p class="p2">Education</p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="lr-box">
+		<div class="left">
+			<p class="p4">2012 - 2014</p>
+			<p class="p5">New Delhi</p>
+		</div>
+
+		<div class="right">
+			<p class="p4">BCA - IGNOU</p>
+			<p class="p5">Retoching Company</p>
+			<p class="p5">Lorem Ipsum is simply dummy text of </p>
+		</div>
+		<div class="clearfix"></div>
+		</div>
+
+		<div class="lr-box">
+		<div class="left">
+			<p class="p4">2014 - 2016</p>
+			<p class="p5">New Delhi</p>
+		</div>
+
+		<div class="right">
+			<p class="p4">BCA - IGNOU</p>
+			<p class="p5">Retoching Company</p>
+			<p class="p5">Lorem Ipsum is simply dummy </p>
+		</div>
+		<div class="clearfix"></div>
+		</div>
+
+		<br>
+		<div class="right-heading">
+			<img src="image/edu.png">
+			<p class="p2">Skill and expertize</p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="s-box">
+			<p class="p6">Grapic Design</p>
+			<div id="progress"></div>
+			<p class="p6">Web Design</p>
+			<div id="progress1"></div>
+			
+		</div>
+		<div class="s-box">
+			<p class="p6">HTML</p>
+			<div id="progress2"></div>
+			<p class="p6">CSS</p>
+			<div id="progress3"></div>
+		</div>
+
+
+		<div class="clearfix"></div>
+		<br><br>
+		<div class="right-heading">
+			<img src="image/hobbies.png">
+			<p class="p2">Hobby & Internet</p>
+		</div>
+		<div class="clearfix"></div>
+		<img src="image/bicycle.png" class="h-img">
+		<img src="image/games.png" class="h-img">
+		<img src="image/book.png" class="h-img">
+		<img src="image/design.png" class="h-img">
+		<img src="image/chess.png" class="h-img">
+
+	</div>
+
+		<div class="clearfix"></div>
+	
+	
+
+</div>
+
+
+
+</body>
 </html>
